@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>I'm {{data.nickname}} | {{data.work.position}}</title>
+    <!-- Boostrap -->
+    <link rel="stylesheet" href="/bootstrap.min.css">
+    <!-- Boostrap's example "narrow-jumbotron" -->
+    <link rel="stylesheet" href="/narrow-jumbotron.css">
+    <link rel="stylesheet" href="/style.css">
+  </head>
+  <body>
+      <div class="container">
+        <div class="header clearfix">
+          <nav>
+            <h3 class="text-muted">{{data.name}}</h3>
+          </nav>
+        </div>
+        <div class="jumbotron">
+          <div class="row">
+            <div class="col-6">
+              <img src="{{data.image}}" class="img-thumbnail">
+            </div>
+            <div class="col-6 personal">
+              <h3>{{data.greeting_msg}}  I'm {{data.nickname}}</h3>
+              <b>{{data.work.position}} @ {{data.work.at}}</b><br>
+              {{data.about}}
+            </div>
+          </div>
+          <br>
+       </div>
+
+       <div class="row">
+           <h4>Skills</h4>
+       </div>
+       <div class="row">
+         {% for skill in data.skills %}
+            <div class="col-lg-4">
+            <b>~</b> {{skill}}
+            </div>
+         {% endfor %}
+       </div><br>
+       <div class="row">
+         <h4>Courses</h4>
+       </div>
+       <div class="card">
+         <ul class="list-group list-group-flush">
+           {% for course in data.courses %}
+           <li class="list-group-item">
+             <a href="{{ course.url if course.url else "" }}">
+               <b>&#916; {{course.name}}</b>&nbsp;@&nbsp;{{course.school}}
+             </a>
+           </li>
+           {% endfor %}
+         </ul>
+       </div>
+
+
+      <footer class="footer">
+        <p>© {{data.name}} 2017</p>
+      </footer>
+
+
+      </div>
+  </body>
+</html>
