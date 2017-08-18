@@ -7,7 +7,6 @@ app = Flask(__name__)
 
 
 with app.app_context():
-    print(type(render_template('index.html', data=data)))
     f.write(render_template('index.html', data=data))
 
 f.closed
